@@ -33,7 +33,8 @@ public class SecurityConfiguration {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(
-                List.of("http://localhost:4200")
+                List.of("http://localhost:4200",
+                        "https://smart-safety-and-emergency-response-0372.onrender.com/")
         );
 
         configuration.setAllowedMethods(
