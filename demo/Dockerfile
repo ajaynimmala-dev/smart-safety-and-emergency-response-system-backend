@@ -1,17 +1,15 @@
-FROM eclipse-temurin:22-jdk
+FROM maven:3.9.11-eclipse-temurin-22
 
 WORKDIR /app
 
-COPY mvnw .
 COPY pom.xml .
 
-RUN chmod +x mvnw
-RUN ./mvnw dependency:go-offline
+RUN mvn dependency:go-offline -B
 
-COPY src src
+COPY src ./src
 
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests -B
 
 EXPOSE 8082
 
-ENTRYPOINT ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["sh", "-c", "java -jar target/*.jar"]
