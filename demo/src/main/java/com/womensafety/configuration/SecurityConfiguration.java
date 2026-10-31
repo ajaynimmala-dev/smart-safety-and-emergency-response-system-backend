@@ -34,7 +34,7 @@ public class SecurityConfiguration {
 
         configuration.setAllowedOrigins(
                 List.of("http://localhost:4200",
-                        "https:localhost",
+                        "https://localhost",
                         "https://smart-safety-and-emergency-response-0372.onrender.com/")
         );
 
